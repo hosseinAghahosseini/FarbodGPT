@@ -11,9 +11,9 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    
     <!-- PWA -->
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="farbodism/manifest.json">
     <meta name="application-name" content="FarbodGPT">
 
     <script>
@@ -28,7 +28,7 @@
 
         var cb = function () {
             var l = document.createElement('link'); l.rel = 'stylesheet';
-            l.href = '/farbodism/css/style-defer.css';
+            l.href = './farbodism/css/style-defer.css';
             var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
         };
         var raf = requestAnimationFrame || mozRequestAnimationFrame ||
@@ -378,5 +378,4 @@
         }
     </script>
 </body>
-
 </html>
