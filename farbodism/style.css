@@ -1,0 +1,222 @@
+﻿/* General */
+#scrollUp {
+    bottom: 77px !important;
+    right: 70px !important;
+    height: 45px !important;
+    width: 45px !important;
+    text-align: center;
+    color: white;
+    background: #00000036;
+    border-radius: 50%;
+    font-size: 25px;
+    box-shadow: 2px 2px 2px #00ffca;
+}
+.rowm {
+    margin-right: 15px !important;
+    margin-left: 15px !important;
+}
+
+/* Request */
+.farbod-box {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    border: 2px solid orange;
+    border-radius: 25px 0px 25px 0px;
+    padding: 50px 10px;
+    background: white;
+    width: 97% !important;
+
+    @media (max-width: 578px) {
+        margin-top: 8px;
+        margin-bottom: 8px;
+        padding: 30px 5px;
+    }
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.hello-text {
+    font-size: 18px;
+    color: midnightblue;
+    margin-top: 20px;
+}
+
+.flex-end {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.flex-start {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.comment-box {
+    margin: 20px;
+    border: 2px solid #b000ff;
+    border-radius: 15px 15px 0px 15px;
+    padding: 10px;
+    background: #f6ebff;
+    color: #00564e;
+}
+
+#randomNum {
+    text-align: center;
+    width: 3.1em;
+}
+
+input[type="radio"] {
+    margin-left: 8px;
+    height: 16px;
+    width: 16px;
+}
+
+input[type="number"] {
+    margin-left: 6px;
+    margin-right: 6px;
+    border-radius: 10px;
+}
+
+textarea {
+    border-radius: 10px;
+    border: 1px solid midnightblue;
+    width: max(50%, 300px);
+    height: 120px;
+    padding: 5px;
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
+}
+
+button {
+    margin-bottom: 12px !important;
+    margin-top: 12px !important;
+    border-radius: 25px !important;
+    padding: 8px 30px !important;
+}
+
+.question-string {
+    margin-bottom: 0px !important;
+    color: #00564e;
+}
+
+.mt-8px {
+    margin-top: 8px;
+}
+
+/* Response */
+.answer-box {
+    margin: 20px;
+    border: 2px solid #00b0ff;
+    border-radius: 15px 15px 15px 0px;
+    padding: 10px;
+    background: #ebf2ff;
+    color: #56004e;
+}
+
+.farbod-avatar {
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 1px solid black;
+}
+
+/* Animation */
+.thinking {
+    animation: changeBgColor 1s ease 1;
+}
+
+.thinking2 {
+    animation: changeBgColor2 1s ease 1;
+}
+
+@keyframes changeBgColor {
+    0% {
+        background-color: #002639;
+    }
+
+    100% {
+        background-color: #ebf2ff
+    }
+}
+
+@keyframes changeBgColor2 {
+    0% {
+        background-color: #002639;
+    }
+
+    100% {
+        background-color: #ebf2ff
+    }
+}
+
+/* footer */
+.footer-place {
+    background: midnightblue;
+    margin-top: 0px;
+    margin-bottom: 50px;
+    padding: 30px 10px;
+
+    @media (max-width: 578px) {
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+}
+
+.footer-txt {
+    text-align: center;
+    color: orchid;
+}
+
+.ff-logo {
+    border-radius: 0px;
+    margin-right: 5px;
+    margin-top: -1px;
+}
+
+/* Info */
+.farbod-info-box {
+    margin-top: -30px;
+    background-color: #f3fff3;
+    margin-bottom: 50px;
+    border: 2px solid #00e519;
+    border-radius: 25px 0px 25px 0px;
+    padding: 50px 20px;
+    width: 97% !important;
+
+    @media (max-width: 578px) {
+        margin-top: 2px;
+        margin-bottom: 8px;
+        padding: 20px 10px;
+    }
+}
+h2 {
+    text-align: center !important;
+    color: #4d0e00 !important;
+    font-weight: bold !important;
+    border-bottom: 1px solid red;
+    padding-bottom: 20px;
+    margin-bottom: 15px !important;
+    margin-top: -20px !important;
+    @media (max-width: 578px) {
+        margin-top: 0px !important;
+    }
+}
+label {
+    margin-bottom: 0px !important;
+    color: #00564e !important;
+    font-size: 18px !important;
+}
+.ff-a a{
+    font-weight: bold;
+    text-shadow: -1px 1px white;
+    border-bottom: 1px solid blue;
+    padding-bottom: 3px;
+}

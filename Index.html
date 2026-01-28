@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>FarbodGPT - AI Chatbot</title>
+
+    <meta charset="utf-8">
+    <meta name="description" content="فربد جی‌پی‌تی، سرراست‌ترین ربات هوش مصنوعی که جواب تمام سوالات ضروری شما را می‌داند. سریع‌ترین راه رها شدن از سرگردانی و تردید در انتخاب را با ربات هوش مصنوعی فربد جی‌پی‌تی تجربه کنید.">
+    <meta name="keywords" content="هوش مصنوعی, chatbot, ai, generative ai, ربات هوش مصنوعی">
+    <link rel="canonical" href="https://FarbodGPT.furfallin.ir/">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="google-site-verification" content="Xr6F16v4Y_l2shXe5nQEmwIy14HoB1IminWpeBL8C7w" />
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="application-name" content="FarbodGPT">
+
+    <script>
+        document.addEventListener('play', function (e) {
+            var audios = document.getElementsByTagName('audio');
+            for (var i = 0, len = audios.length; i < len; i++) {
+                if (audios[i] != e.target) {
+                    audios[i].pause();
+                }
+            }
+        }, true);
+
+        var cb = function () {
+            var l = document.createElement('link'); l.rel = 'stylesheet';
+            l.href = '/farbodism/css/style-defer.css';
+            var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+        };
+        var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+            webkitRequestAnimationFrame || msRequestAnimationFrame;
+        if (raf) raf(cb);
+        else window.addEventListener('load', cb);
+
+        var top = document.getElementById('scrollUp').onclick = function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+    </script>
+    <link rel="preload" href="./farbodism/css/Vazir.woff" as="font" type="font/ttf" crossorigin>
+    <link rel="stylesheet" href="./farbodism/style.css">
+    <link rel="stylesheet" href="./farbodism/css/bootstrap2.min.css">
+    <link rel="stylesheet" href="./farbodism/css/style-phone.css" importance="high" media="screen and (max-width: 767px)" />
+    <link rel="stylesheet" href="./farbodism/css/style-pc.css" media="screen and (min-width: 768px)" />
+
+    <script src="./farbodism/farbod.js"></script>
+    <script>
+        function seekAnswerFromFarbod()
+        {
+            if(document.getElementById("isRandom").checked)
+            {
+                let optionCount = document.getElementById("randomNum").value;
+                document.getElementById("farbodAnswer").innerHTML = Farbodism.askFarbodChoice(optionCount);
+            }
+            else if(document.getElementById("isSuggestion").checked)
+            {
+                document.getElementById("farbodAnswer").innerHTML = Farbodism.askFarbodSuggestion();
+            }
+            else
+            {
+                questionString = document.getElementById("questionArea").value;
+                document.getElementById("farbodAnswer").innerHTML = Farbodism.askFarbodRawQuestion(questionString);
+            }
+
+            let farbodAnswerBox = document.getElementById("farbodAnswerBox");
+            farbodAnswerBox.style.display = "block";
+
+            if(document.getElementById("farbodAnswerBox").classList.contains("thinking"))
+            {
+                document.getElementById("farbodAnswerBox").classList.remove("thinking");
+                document.getElementById("farbodAnswerBox").classList.add("thinking2");
+            }
+            else if(document.getElementById("farbodAnswerBox").classList.contains("thinking2"))
+            {
+                document.getElementById("farbodAnswerBox").classList.remove("thinking2");
+                document.getElementById("farbodAnswerBox").classList.add("thinking");
+            }
+        }
+        function reset()
+        {
+            let farbodAnswerBox = document.getElementById("farbodAnswerBox");
+            farbodAnswerBox.style.display = "none";
+
+            document.getElementById("infoDiv").style.display = "none";
+        }
+        function toggleInfoDiv()
+        {
+            if(document.getElementById("infoDiv").style.display == "none")
+                document.getElementById("infoDiv").style.display = "block";
+            else if(document.getElementById("infoDiv").style.display == "block")
+                document.getElementById("infoDiv").style.display = "none";
+        }
+    </script>
+</head>
+<body>
+    <div class="main-content-wrapper section-padding-100">
+        <div class="container farbod-box">
+            <div class="row rowm">
+                <div class="col-6 flex-end">
+                    <img src="./farbodism/img/Farbod_Logo_1.png" alt="ربات هوش مصنوعی FarbodGPT" style="height: 70px" />
+                </div>
+                <div class="col-6 flex-start">
+                    <img src="./farbodism/img/Farbod_Avatar.png" alt="ربات هوش مصنوعی FarbodGPT" style="width: 100px" />
+                </div>
+            
+                <div class="col-12 flex-center hello-text">
+                    سلام. من فربدم. هر سوالی داری از من بپرس.
+                </div>
+            </div>
+
+            <div class="row rowm comment-box" name="questionForm">
+                <div class="col-12 flex-start">
+                    <input id="isRandom" name="questionType" type="radio" checked/>
+                    <label class="question-string" for="isRandom">
+                        سلام فربد. من نمی‌تونم بین 
+                        <input id="randomNum" type="number" value="2" />
+                        گزینه یکی رو انتخاب کنم. می‌تونی به من کمک کنی؟ 
+                    </label>
+                </div>
+                <div class="col-12 flex-start mt-8px">
+                    <input id="isSuggestion" name="questionType" type="radio" />
+                    <label for="isSuggestion">سلام فربد. من کلا نمی‌دونم چه غلطی باید بکنم. یه راهنمایی می‌کنی؟ </label>
+                </div>
+                <div class="col-12 flex-start mt-8px">
+                    <input id="isCustom" name="questionType" type="radio" />
+                    <label for="isCustom">سوال اختصاصی </label>
+                </div>
+                <div class="col-12 flex-start mt-8px">
+                    <textarea id="questionArea"></textarea>
+                </div>
+                <div class="col-12 flex-end mt-8px">
+                    <button onclick="seekAnswerFromFarbod()" class="btn btn-primary">ارسال پیام</button>
+                </div>
+            </div>
+
+            <div class="row rowm answer-box thinking" id="farbodAnswerBox" style="display: none">
+                <div class="col-12 flex-end">
+                    <span class="ff-a" id="farbodAnswer"></span>
+                    <img src="./farbodism/img/Farbod_Avatar.png" alt="فربد" class="farbod-avatar" />
+                </div>
+                <div class="col-12 flex-start">
+                    <button onclick="reset()" class="btn btn-primary">شروع مجدد</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container farbod-box footer-place">
+            <div class="row">
+                <div class="col-6 col-md-2 footer-txt flex-end">
+                    <img src="./farbodism/img/infoLogoW.png" width="30" style="margin-left:5px" />
+                    <a class="footer-txt" onclick="toggleInfoDiv()" href="#infoDiv">
+                        درباره FarbodGPT
+                    </a>
+                </div>
+                <div class="col-6 col-md-2 footer-txt">
+                    <img src="./farbodism/img/githubLogoW.png" width="30" />
+                    <a class="footer-txt" href="https://github.com/hosseinAghahosseini/FarbodGPT" target="_blank">
+                        لینک گیتهاب
+                    </a>
+                </div>
+                <div class="col-12 col-md-4 footer-txt">
+                    <a href="#" style="color:springgreen">
+                        فربد جی‌پی‌تی، سرراست‌ترین ربات هوش مصنوعی &copy; 2026
+                    </a>
+                </div>
+                <div class="col-12 col-md-4 footer-txt flex-center">
+                    <span class="footer-txt">توسعه یافته توسط</span>
+                    <a href="https://furfallin.ir">
+                        <img src="./farbodism/img/furfallinLogoEn.png" width="70" class="ff-logo" alt="Furfallin" />
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container farbod-info-box" id="infoDiv">
+            <div class="row">
+                <div class="col-12">
+                    <h2 style="text-align:center">درباره ربات هوش‌مصنوعی FarbodGPT</h2>
+                    <p align="justify">
+                        ربات هوش مصنوعی FarbodGPT
+                        سرراست‌ترین و امن‌ترین ربات چت و مشاوره برمبنای ابزارهای هوش مصنوعی است که توسط تیم فنی
+                        <a href="https://furfallin.ir">furfallin</a>
+                        توسعه داده شده است.
+                    </p>
+
+                    <h3>چرا ربات‌های هوش مصنوعی فعلی کارایی لازم را ندارند؟</h3>
+                    <p align="justify">
+                        تحقیقات تیم هوش‌مصنوعی گروه کامپیوتر دانشکده‌ی PZJ
+                        نشان داده که %84.36 استفاده‌هایی که افراد از چت‌بات‌های هوش مصنوعی دارند، پرسش سوال‌هایی بسیار پیش پا افتاده بوده
+                        که با اندکی تفکر و تعقل، پرسش از دیگران، یا با جستجویی ساده در اینترنت، همه‌ی آن‌ها
+                        به صورت صحیح‌تری قابل حل می‌باشند.
+                    </p>
+                    <p align="justify">
+                        برای توسعه‌ی
+                        Chatbotهای فعلی هوش مصنوعی
+                        بیلیون‌ها دلار هزینه شده و علاوه بر هزینه‌ی اولیه، هر سوال ساده یک کاربر
+                        منجر به مصرف انرژی الکتریکی و همچنین تولید گازهای گلخانه‌ای می‌شود.
+                        برای مثال اگر شما از یک Chatbot
+                        بپرسید که چگونه تخم مرغ نیمرو درست کنیم،
+                        شاید هزینه‌ی پاسخ دادن به همین یک سوال
+                        (با در نظرگرفتن هزینه‌ی توسعه‌ی زیرساخت و پیاده‌سازی بستر)
+                        بیش از هزینه‌ی خرید یک پرس نیمرو از صبحانه‌سرای سر کوچه‌تان باشد!
+                    </p>
+                    <p align="justify">
+                        به علاوه استفاده از هوش مصنوعی جهت تولید محتوایی که پیشتر بر مبنای قوه‌ی خلاقه‌ی انسان بود،
+                        منجر شده تا جایگاه هنر کم ارزش شود و هوش مصنوعی جای
+                        نوشتن انشا، داستان سرایی، نقاشی، عکاسی، ساخت کلیپ و فیلم را بگیرد.
+                        مشکل این جاست که هوش مصنوعی بر اساس برایندی از تفکرات تمامی افراد جامعه
+                        تولید محتوا می‌کند، حال آن که فاکتور تجربه‌ی شخصی را
+                        که یکی از مهم‌ترین اصول در تولید هنر می‌باشد، در نظر نمی‌گیرد.
+                        حاصل این امر را شما همین الان در جامعه می‌توانید ببینید:
+                        بیلبوردهای تبلیغاتی مشابه،
+                        ادبیات یکسان اخبار سایت‌ها،
+                        موسیقی‌های تکراری که در تبلیغات تلویزیونی استفاده شده،
+                        تیزرهای دارای استایل هنری یکسان از شرکت‌های مختلف،
+                        وبسایت‌های با ظاهر کاملا مشابه
+                        و خیلی از چیزهای دیگر که همگی توسط هوش مصنوعی
+                        ساخته‌شده‌اند.
+                        مشکل اصلی این جاست که
+                        این ساختار تکراری ساخته‌ی هوش مصنوعی، هیچ گونه تاثیرگذاری خاصی بر ذهن انسان نخواهد داشت،
+                        زیرا ذهن انسان تغییرات و تازگی را در حافظه‌ی خود ذخیره می‌کند، نه تکرار مکررات را.
+                        به همین دلیل محتوای تولیدشده توسط هوش مصنوعی ماندگار نخواهد شد،
+                        زیرا تجربه‌ی شخصی در ساخت آن دخیل نبوده یا کمتر دخیل بوده است
+                        و همین منجر شده تا اثر ساخته شده توسط آن تکراری باشد.
+                    </p>
+                    <p align="justify">
+                        توجه داشته باشید که علاوه بر مسائل هنری، حتی مسائل فنی مانند برنامه نویسی نیز می‌تواند
+                        با تجربه‌ی شخصی افراد متفاوت‌تر و بهینه‌تر پیاده‌سازی شود.
+                        شاید داستان توسعه‌دهندگان بسیاری از بازی‌های رایانه‌ای قدیمی را شنیده باشید که به دلیل
+                        محدودیت‌های سخت‌افزاری موجود در کنسول‌های بازی قدیمی،
+                        از چه روش‌های خلاقانه‌ای بهره جسته اند تا بازی‌های بسیار سنگین‌تر از توان سخت‌افزاری کنسول را
+                        روی کنسول ضعیف‌تر اجرا نمایند.
+                        احتمال این که بتوان با ابزارهای هوش مصنوعی
+                        چنین خلاقیت‌هایی را انجام داد بسیار پایین است، زیرا خلاقیت از تجربه‌ی شخصی می‌آید
+                        نه از برایند تفکرات دیگران.
+                        این مسئله را می‌توان به باقی رشته‌های مهندسی نیز تعمیم داد.
+                    </p>
+                    <p align="justify">
+                        پس در نتیجه بسیاری از استفاده‌هایی که از
+                        Chatbotهای هوش مصنوعی
+                        می‌شود بیهوده بوده و منجر به خلق محصولی تراز نمی‌شود.
+                        مشکل این جاست که این مصارف بیهوده باعث شده تا حجم زیادی از سخت‌افزار تولید شده در دنیا
+                        به جای این که در جای تخصصی خود مصرف شود،
+                        صرف ساخت ربات‌هایی شده که در عمل کار مهمی نیز انجام نمی‌دهند.
+                    </p>
+                    <p align="justify">
+                        حتما شما از گرانی کالاهای کامپیوتری مانند
+                        RAM، SSD و همچنین کارت‌های گرافیکی
+                        با خبر هستید.
+                        یکی از مهم‌ترین دلایل گرانی سخت‌افزارها، همین استفاده از آن‌ها
+                        در ساخت Chatbotها
+                        و همچنین سایر ابزارهای هوش مصنوعی مولد
+                        (مانند ساخت عکس و فیلم و آهنگ)
+                        می‌باشد.
+                        شرکت‌های توسعه‌ی ربات‌های هوش مصنوعی
+                        بخش اعظمی از سخت‌افزار کامپیوتری دنیا را پیش خرید کرده و
+                        مردم عادی دنیا باید باقی مانده‌ی سخت افزار موجود در دنیا را
+                        با قیمت گزاف خریداری کنند.
+                        در حالی که سخت افزار اصلی صرف پاسخ پرسش‌های پیش پا افتاده
+                        و ساخت آثار هنری کم‌ارزش شده است.
+                    </p>
+                    <p align="justify">
+                        ابزارهای هوش مصنوعی باعث شده اند تا در نهایت محصولی کم کیفیت‌تر از نسخه‌ی انسانی
+                        به کاربر نهایی تحویل داده شود، در حالی که افراد زیادی نیز شغل خود را به خاطر همین ابزار بی کیفیت از دست داده اند.
+                        برای مثال فرض کنید که یک شرکت سه طراح گرافیکی داشته.
+                        با آمدن ابزارهای تولید محتوای هوش مصنوعی
+                        کارفرما دو نفر از آن ها را اخراج می کند و تنها یک نفر در این موقعیت شغلی باقی می‌ماند.
+                        حال نتیجه این خواهد بود که آن یک فرد باقیمانده
+                        باید به اندازه‌ی سه نفر خلاقیت نشان دهد
+                        تا کیفیت نتیجه‌ی نهایی با حالت قبل یکسان شود
+                        که این موضوع امری غیر ممکن می‌باشد.
+                        در نتیجه طراحی‌های هنری ساخته شده کیفیت کمتری خواهند داشت
+                        در حالی که دو نفر نیز کار خود را از دست داده اند.
+                        اگر چه سرمایه‌دار کارفرما پول بیشتری ذخیره می‌کند،
+                        اما کارگران شغل خود را از دست می‌دهند
+                        و دریافت کنندگان محصول نیز محصولی ضعیف‌تر دریافت می‌کنند.
+                        این نتیجه‌ی جایگزینی انسان با هوش مصنوعی خواهد بود.
+                    </p>
+                    <p align="justify">
+                        مشکل دیگری که در ارتباط با چت‌بات‌های هوش مصنوعی وجود دارد تمرکز قدرت و عدم وجود حریم خصوصی است.
+                        مالکان چت‌بات‌های هوش مصنوعی غول های فناوری هستند
+                        هیچ کدام از این غول‌های فناوری خیرخواه مردم نیستند
+                        و در نظام مصرف‌گرای سرمایه داری به دنبال خالی کردن جیب مردم و پر کردن جیب خود هستند.
+                        در حالی که معماری‌های کامپیوتری مدرن بر مبنای تقسیم قدرت و توزیع شدگی حداکثری می باشد،
+                        چت‌بات‌های هوش مصنوعی بر اساس قدرت متمرکز هستند.
+                        این تمرکز قدرت باعث می‌شود که پس از وابسته شدن مردم به ربات‌ها، هرگاه که شرکت‌های بزرگ اراده کنند،
+                        بتوانند هر گونه سواستفاده‌ای که می‌خواهند از کاربران ابزارهای هوش مصنوعی بنمایند.
+                    </p>
+
+                    <h3>چرا ما FarbodGPT را توسعه دادیم؟</h3>
+                    <p align="justify">
+                        با تفاسیر بالا ربات‌های هوش مصنوعی مولد فعلی بیش از آن که مفید باشند، مضر هستند،
+                        مصرف انرژی بالا،
+                        تمرکز قدرت،
+                        گران شدن سخت افزار،
+                        از دست رفتن حریم خصوصی،
+                        بیکار شدن مردم،
+                        کاهش کیفیت محصولات تولیدی،
+                        کاهش خلاقیت
+                        و تنبل شدن مردم
+                        بهایی نیست که نیاز باشد برای
+                        تولیدات کم کیفیت هوش مصنوعی بپردازیم.
+                    </p>
+                    <p align="justify">
+                        ما نیاز به رباتی داریم که بتواند بدون مصرف انرژی بالا، به صورت توزیع شده و در سمت کلاینت (نه سرور)
+                        به مشکلات واقعی که داریم پاسخ دهد. مشکلاتی که حل آن زمان و انرژی زیادی را صرف خواهد کرد و همچنین
+                        مشاوره گرفتن از دیگران در ارتباط با آن میسر یا مفید نباشد. این جاست که ربات هوش مصنوعی FarbodGPT
+                        وارد می‌شود.
+                    </p>
+                    <p align="justify">
+                        بسیاری از اوقات ما نمی‌توانیم بین 2 یا چند موضوع یکی را انتخاب کنیم.
+                        برای مثال ما مبلغ مشخصی تومن پول در اختیار داریم و نمی‌دانیم با آن پول
+                        کالای الف را بخریم یا کالا ب. ما در ارتباط با این دو کالا تحقیقات زیادی کرده ایم اما به نتیجه نرسیده ایم.
+                        یا ممکن است جهت انتخاب رشته‌ی تحصیلی بین چند مورد مانده باشیم یا در انجام کاری شک داشته باشیم.
+                        این جاست که می‌توانیم از ربات FarbodGPT بپرسیم
+                        و این ربات می‌تواند ما را از بلاتکلیفی بیرون درآورد.
+                    </p>
+                    <p align="justify">
+                        همچنین گاهی اوقات به علت دغدغه‌های ذهنی زیاد و مشکلات زندگی
+                        به طور کلی نمی‌دانیم در لحظه‌ی فعلی چه کار باید کنیم، و کسی را نیز برای دریافت مشورت نمی‌یابیم.
+                        در این زمان نیز یک ربات تخصصی مانند FarbodGPT
+                        که بر اساس تجربیات حرفه‌ای تقابل با
+                        اصطکاک ایستایی ذهنی آموزش دیده می‌تواند برای ما مفید باشد.
+                    </p>
+                    <p align="justify">
+                        بر اساس این نیازهای مهم ما با افتخار ربات هوش مصنوعی FarbodGPT
+                        را توسعه داده ایم که این ربات به جای LLM ها
+                        از تکنولوژی جدیدی به نام VTSSLM
+                        (Very tiny super spicific language model)
+                        استفاده می‌کند.
+                        این تکنولوژی بر اساس پایگاه دانش دقیق موجود استوار است نه بر اساس تجمیع داده‌های بسیار بزرگ
+                        و این مسئله باعث شده تا FarbodGPT
+                        بدون نیاز به هیچ سروری در سمت کلاینت و با زبان Javascript
+                        قابل پیاده سازی باشد.
+                    </p>
+                    <p align="justify">
+                        همچنین ربات FarbodGPT
+                        به صورت منبع باز در
+                        <a href="https://github.com/hosseinAghahosseini/FarbodGPT" target="_blank">گیتهاب</a>
+                        منتشر شده و شما می‌توانید با مشاهده‌ی کدهای موجود در این ربات
+                        دربیابید که هیچ دیتایی به سمت سرور ارسال نمی‌شود و
+                        حریم خصوصی شما کاملا حفظ می‌شود.
+                        همچنین می‌توانید با fork
+                        کردن این ربات، خودتان ربات تخصصی شخصی خود را بر اساس FarbodGPT
+                        بسازید.
+                    </p>
+
+                    <h3>جمع بندی</h3>
+                    <p align="justify">
+                        ربات FarbodGPT
+                        تمامی نیازهایی راکه شما در طول زندگی با آن مواجه خواهید شد، حل خواهد کرد.
+                        اگر به ربات دیگری نیاز پیدا کردید، شاید بهتر باشد که در طرز فکر خود تجدید نظر کنید.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="./farbodism/js/jquery-2.2.4.min.js"></script>
+    <script src="./farbodism/js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="./farbodism/js/plugins.js"></script>
+    <link href="./farbodism/js//font-awesome.min.css" rel="stylesheet">
+    <!-- Active js -->
+    <script src="./farbodism/js/active.js"></script>
+    <a id="scrollUp" href="#top" style="position: fixed; z-index: 2147483647; display: block;">↑</a>
+    <script src="./farbodism/js/lazysizes.min.js"></script>
+
+    <!-- pwa -->
+    <script>
+        if (typeof navigator.serviceWorker !== 'undefined') {
+            navigator.serviceWorker.register('/Farbodism/sw.js')
+        }
+    </script>
+</body>
+</html>

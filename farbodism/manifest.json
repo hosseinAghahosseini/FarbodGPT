@@ -1,0 +1,26 @@
+﻿{
+  "lang": "fa",
+  "dir": "rtl",
+  "name": "FarbodGPT - AI Chatbot",
+  "description": "فربد جی‌پی‌تی، سرراست‌ترین ربات هوش مصنوعی.",
+  "categories": [ "AI", "Chatbot", "Generative AI", "Consultation", "AI bots" ],
+  "short_name": "FarbodGPT",
+  "icons": [
+    {
+      "src": "/farbodism/img/logo512.png",
+      "sizes": "512x512",
+      "purpose": "any"
+    },
+    {
+      "src": "/farbodism/img/logo128.png",
+      "sizes": "128x128"
+    }
+  ],
+  "scope": "/",
+  "id": "FarbodGPT",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#09f",
+  "background_color": "#cccccc"
+}
