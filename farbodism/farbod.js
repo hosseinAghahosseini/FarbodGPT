@@ -113,7 +113,7 @@
         if (i == knowledgeSize)
         {
             let link = "https://furfallin.ir/" + Farbodism.generateFurfallinPost();
-            return `بشین <a href="${link}">این پست تصادفی</a> از سایت فرفالین رو مطالعه کن.`;
+            return `بشین <a href="${link}" target="_blank">این پست تصادفی</a> از سایت فرفالین رو مطالعه کن.`;
         }
 
         let j = Math.floor(Math.random() * knowledge[i].length);
@@ -332,5 +332,6 @@
 
         return furfallinKnowledge[Math.floor(Math.random() * furfallinKnowledge.length)];
     }
+
 
 }
