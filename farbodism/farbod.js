@@ -26,7 +26,9 @@
             "Wolfenestein The Old Blood",
             "Starcraft",
             "Stronghold",
-            "The Witcher 2"
+            "The Witcher 2",
+			"Serious Sam",
+			"Inside (2016)"
         ];
 
         //movieKnowledge
@@ -38,7 +40,8 @@
             "Papillon",
             "The Good, The Bad and The Ugly",
             "City of God (2002)",
-            "The Battle of Algiers"
+            "The Battle of Algiers",
+			"The Silence of the Lambs"
         ];
 
         //animeKnowledge
@@ -60,7 +63,6 @@
             "Chopin: Prelude #15 in D Flat, Op. 28/15, Raindrop",
             "خواب‌های طلایی جواد معروفی",
             "Rachmaninov - Piano Concerto No. 2",
-            "Tchaikovsky - The Swan Lake",
             "Liszt - Hungarian Rhapsody No. 2",
             "Mendelssohn - Violin Concerto",
             "Sibelius - Nocturne Op 51, No. 3",
@@ -85,7 +87,9 @@
             "چای نبات دکه بلندیان",
             "دلستر کلاسیک",
             "بشقاب عدسی از علی عدسی",
-            "بندری سعید سگ پز"
+            "بندری سعید سگ پز",
+			"بلال کبابی با کره و رب آلوچه",
+			"شیرموز بستنی از مغازه حاج حسن"
         ];
 
         //otherMediaKnowledge
@@ -93,7 +97,8 @@
             "بشین مستند Hyper-Normalization رو ببین",
             "بشین کتاب هنر جنگ سون تزو رو بخون.",
             "بشین سریال The Three Kingdoms (2010) رو ببین.",
-            "بشین سریال Twin Peaks رو ببین."
+            "بشین سریال Twin Peaks رو ببین.",
+			"بشین باله‌ی دریاچه‌ی قو از چایکوفسکی رو تماشا کن."
         ];
 
         //generalTasks
@@ -326,12 +331,12 @@
             "Article?id=7184",
             "Article?id=7185",
             "Article?id=7186",
-            "/Pics?GalleryID=3",
-            "/Pics?GalleryID=2"
+            "Pics?GalleryID=3",
+            "Pics?GalleryID=2",
+            "Article?id=7187"
         ];
 
         return furfallinKnowledge[Math.floor(Math.random() * furfallinKnowledge.length)];
     }
-
 
 }
