@@ -1,8 +1,9 @@
-﻿class Farbodism {
+class Farbodism {
     static askFarbodChoice(optionCount) {
         if (isNaN(parseInt(optionCount))) return "خودتو سرکار بذار.";
         if (optionCount <= 0) return "الان می‌خوای با این عدد چی رو ثابت کنی؟";
         if (optionCount == 1) return "تو انتخاب فقط یک گزینه هم موندی؟؟؟";
+		if (optionCount > 100000) return "بهتره گزینه‌هات رو با روش‌های دیگه کمتر کنی و بعد سوالتو تکرار کنی.";
 
         let option = Math.random() * optionCount;
         let selected = Math.ceil(option);
@@ -98,7 +99,8 @@
             "بشین کتاب هنر جنگ سون تزو رو بخون.",
             "بشین سریال The Three Kingdoms (2010) رو ببین.",
             "بشین سریال Twin Peaks رو ببین.",
-			"بشین باله‌ی دریاچه‌ی قو از چایکوفسکی رو تماشا کن."
+			"بشین باله‌ی دریاچه‌ی قو از چایکوفسکی رو تماشا کن.",
+			"بشین سریال Dekalog کیشلوفسکی رو ببین."
         ];
 
         //generalTasks
@@ -111,7 +113,8 @@
             "می‌تونی با بچه‌ها بری بیرون و پاسور بازی کنی.",
             "بشین یه دست شطرنج بازی کن.",
             "به غذایی که می‌خوای بخوری تخم مرغ اضافه کن.",
-            "اگه برات مقدوره با چوب یه آتیش کوچولو درست کن."
+            "اگه برات مقدوره با چوب یه آتیش کوچولو درست کن.",
+			"اگه برای انجام کاری مهلتی تعیین شده، انجام اون رو بذار در آخرین لحظات ددلاین تا مدیریت زمان رو یاد بگیری. نرسیدی هم مشکلی نیست. ددلاین تمدید می‌شه."
         ];
 
         let i = Math.floor(Math.random() * (knowledgeSize + 1));
@@ -333,7 +336,10 @@
             "Article?id=7186",
             "Pics?GalleryID=3",
             "Pics?GalleryID=2",
-            "Article?id=7187"
+			"Article?id=7187",
+			"Article?id=7188",
+			"Recomm?id=12",
+			"Article?id=7189"
         ];
 
         return furfallinKnowledge[Math.floor(Math.random() * furfallinKnowledge.length)];
