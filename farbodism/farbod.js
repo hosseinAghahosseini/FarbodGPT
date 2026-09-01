@@ -29,7 +29,8 @@ class Farbodism {
             "Stronghold",
             "The Witcher 2",
 			"Serious Sam",
-			"Inside (2016)"
+			"Inside (2016)",
+			"Plants vs. Zombies"
         ];
 
         //movieKnowledge
