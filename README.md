@@ -1,4 +1,4 @@
 # FarbodGPT
 FarbodGPT is an AI Chatbot that exactly tells you what to do.
 
-You can easily test how FarbodGPT works as it is hosted online [here](https://furfallin.ir/FarbodGPT).
+You can easily test how FarbodGPT works as it is hosted online [here](https://hosseinaghahosseini.github.io/FarbodGPT/).
