@@ -3,7 +3,7 @@ class Farbodism {
         if (isNaN(parseInt(optionCount))) return "خودتو سرکار بذار.";
         if (optionCount <= 0) return "الان می‌خوای با این عدد چی رو ثابت کنی؟";
         if (optionCount == 1) return "تو انتخاب فقط یک گزینه هم موندی؟؟؟";
-		if (optionCount > 100000) return "بهتره گزینه‌هات رو با روش‌های دیگه کمتر کنی و بعد سوالتو تکرار کنی.";
+        if (optionCount > 100000) return "بهتره گزینه‌هات رو با روش‌های دیگه کمتر کنی و بعد سوالتو تکرار کنی.";
 
         let option = Math.random() * optionCount;
         let selected = Math.ceil(option);
@@ -28,9 +28,8 @@ class Farbodism {
             "Starcraft",
             "Stronghold",
             "The Witcher 2",
-			"Serious Sam",
-			"Inside (2016)",
-			"Plants vs. Zombies"
+            "Serious Sam",
+            "Inside (2016)"
         ];
 
         //movieKnowledge
@@ -43,7 +42,7 @@ class Farbodism {
             "The Good, The Bad and The Ugly",
             "City of God (2002)",
             "The Battle of Algiers",
-			"The Silence of the Lambs"
+            "The Silence of the Lambs"
         ];
 
         //animeKnowledge
@@ -90,8 +89,8 @@ class Farbodism {
             "دلستر کلاسیک",
             "بشقاب عدسی از علی عدسی",
             "بندری سعید سگ پز",
-			"بلال کبابی با کره و رب آلوچه",
-			"شیرموز بستنی از مغازه حاج حسن"
+            "بلال کبابی با کره و رب آلوچه",
+            "شیرموز بستنی از مغازه حاج حسن"
         ];
 
         //otherMediaKnowledge
@@ -100,8 +99,8 @@ class Farbodism {
             "بشین کتاب هنر جنگ سون تزو رو بخون.",
             "بشین سریال The Three Kingdoms (2010) رو ببین.",
             "بشین سریال Twin Peaks رو ببین.",
-			"بشین باله‌ی دریاچه‌ی قو از چایکوفسکی رو تماشا کن.",
-			"بشین سریال Dekalog کیشلوفسکی رو ببین."
+            "بشین باله‌ی دریاچه‌ی قو از چایکوفسکی رو تماشا کن.",
+            "بشین سریال Dekalog کیشلوفسکی رو ببین."
         ];
 
         //generalTasks
@@ -115,12 +114,11 @@ class Farbodism {
             "بشین یه دست شطرنج بازی کن.",
             "به غذایی که می‌خوای بخوری تخم مرغ اضافه کن.",
             "اگه برات مقدوره با چوب یه آتیش کوچولو درست کن.",
-			"اگه برای انجام کاری مهلتی تعیین شده، انجام اون رو بذار در آخرین لحظات ددلاین تا مدیریت زمان رو یاد بگیری. نرسیدی هم مشکلی نیست. ددلاین تمدید می‌شه."
+            "اگه برای انجام کاری مهلتی تعیین شده، انجام اون رو بذار در آخرین لحظات ددلاین تا مدیریت زمان رو یاد بگیری. نرسیدی هم مشکلی نیست. ددلاین تمدید می‌شه."
         ];
 
         let i = Math.floor(Math.random() * (knowledgeSize + 1));
-        if (i == knowledgeSize)
-        {
+        if (i == knowledgeSize) {
             let link = "https://furfallin.ir/" + Farbodism.generateFurfallinPost();
             return `بشین <a href="${link}" target="_blank">این پست تصادفی</a> از سایت فرفالین رو مطالعه کن.`;
         }
@@ -167,11 +165,14 @@ class Farbodism {
     static generateFurfallinPost() {
         let furfallinKnowledge = [
             "",
-            "Movie",
-            "Music",
-            "Dialog",
+            "Portal/Movie",
+            "Portal/Music",
+            "Portal/Dialog",
+            "Portal/Radio",
+            "Portal/Books",
             "PMDB",
-            "MovieOnHDD",
+            "Chat",
+            "Portal/MovieOnHDD",
             "Recomm?id=1", //needs better text
             "Recomm?id=2",
             //"Recomm?id=3", //needs images
@@ -183,6 +184,9 @@ class Farbodism {
             "Recomm?id=9",
             "Recomm?id=10",
             "Recomm?id=11",
+            "Recomm?id=12",
+            "Pics?GalleryID=3",
+            "Pics?GalleryID=2",
             "Article?id=10",
             "Article?id=12",
             "Article?id=25",
@@ -280,6 +284,7 @@ class Farbodism {
             "Article?id=4131",
             "Article?id=4132",
             "Article?id=4133",
+            "/Chat?id=2&password=silence+my+brother",
             "Article?id=4134", //needs link farsi
             "Article?id=5134",
             "Article?id=5135",
@@ -335,12 +340,12 @@ class Farbodism {
             "Article?id=7184",
             "Article?id=7185",
             "Article?id=7186",
-            "Pics?GalleryID=3",
-            "Pics?GalleryID=2",
-			"Article?id=7187",
-			"Article?id=7188",
-			"Recomm?id=12",
-			"Article?id=7189"
+            "Article?id=7187",
+            "Article?id=7188",
+            "Article?id=7189",
+            "Article?id=7190",
+            "Article?id=7191",
+            "Article?id=7192"
         ];
 
         return furfallinKnowledge[Math.floor(Math.random() * furfallinKnowledge.length)];
